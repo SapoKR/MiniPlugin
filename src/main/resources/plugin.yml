@@ -1,0 +1,6 @@
+name: MiniPlugin
+version: 1.0
+main: io.github.minibox.miniplugin.MiniPlugin
+api-version: 1.17
+libraries:
+  - org.jetbrains.kotlin:kotlin-stdlib:1.5.31
