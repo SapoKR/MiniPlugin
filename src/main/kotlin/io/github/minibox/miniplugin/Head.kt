@@ -16,7 +16,7 @@ import java.util.*
 class Head : Listener {
     @EventHandler
     fun dropHead(event: PlayerDeathEvent) {
-        val per: Int = Random().nextInt(20)
+        val per: Int = Random().nextInt(8)
 
         if (per != 0) return
 
