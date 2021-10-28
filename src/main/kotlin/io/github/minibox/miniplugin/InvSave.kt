@@ -1,15 +1,16 @@
 package io.github.minibox.miniplugin
 
+import org.bukkit.Material
+import org.bukkit.block.Chest
 import org.bukkit.event.EventHandler
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.PlayerDeathEvent
 import org.bukkit.inventory.ItemStack
+import java.util.*
 
 class InvSave : Listener {
     @EventHandler
     fun dropHead(event: PlayerDeathEvent) {
-        var dropCount = 0
-
         event.drops.shuffle()
         val drops = event.drops as MutableList
 
@@ -17,11 +18,11 @@ class InvSave : Listener {
         while (iterator.hasNext()) {
             val item: ItemStack = iterator.next()
 
-            if (dropCount >= drops.size / 2) break
+            if (Random().nextBoolean()) continue
 
             iterator.remove()
             event.itemsToKeep.add(item)
-            dropCount += 1
+
         }
     }
 }
