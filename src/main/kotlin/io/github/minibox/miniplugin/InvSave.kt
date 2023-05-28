@@ -11,18 +11,14 @@ import java.util.*
 class InvSave : Listener {
     @EventHandler
     fun dropHead(event: PlayerDeathEvent) {
-        event.drops.shuffle()
         val drops = event.drops as MutableList
-
+        drops.shuffle()
         val iterator = drops.iterator()
         while (iterator.hasNext()) {
             val item: ItemStack = iterator.next()
-
             if (Random().nextBoolean()) continue
-
             iterator.remove()
             event.itemsToKeep.add(item)
-
         }
     }
 }
